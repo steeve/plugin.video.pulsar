@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="General">
+        <setting label="General" type="lsep" />
+        <setting id="download_path" type="folder" label="Download Path (NOT FAT32)" source="auto" option="writeable" />
+        <setting id="keep_files" type="bool" label="Keep files after playback/download stops" default="false" />
+
+        <setting label="BitTorrent" type="lsep"/>
+        <setting id="max_upload_rate" label="Max Upload Rate (kB/s)" type="number" default="" />
+        <setting id="max_download_rate" label="Max Download Rate (kB/s)" type="number" default="" />
+        <setting id="listen_port_min" label="Listen Port Min" type="number" default="6889" />
+        <setting id="listen_port_max" label="Listen Port Max" type="number" default="7000" />
+    </category>
+</settings>
