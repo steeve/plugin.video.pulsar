@@ -8,7 +8,7 @@ HANDLE = int(sys.argv[1])
 PULSARD_HOST = "http://localhost:10001"
 
 import socket
-socket.setdefaulttimeout(120)
+socket.setdefaulttimeout(300)
 
 class closing(object):
     def __init__(self, thing):
