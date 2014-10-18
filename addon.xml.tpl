@@ -7,6 +7,7 @@
         <provides>video</provides>
     </extension>
     <extension point="xbmc.service" library="pulsard.py" start="login"/>
+    <extension point="xbmc.python.module" library="resources/site-packages" />
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
         <language></language>
