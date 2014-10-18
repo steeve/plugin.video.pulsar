@@ -1,8 +1,8 @@
 NAME = plugin.video.pulsar
 GIT = git
 GIT_VERSION = $(shell $(GIT) describe --always)
-VERSION = $(patsubst v%,%,$(GIT_VERSION))
-ARCHS = windows_x86 darwin_x64
+VERSION = $(shell cat VERSION)
+ARCHS = windows_x86 darwin_x64 linux_x86 linux_x64 linux_arm
 ZIP_SUFFIX = zip
 ZIP_FILE = $(NAME)-$(VERSION).$(ZIP_SUFFIX)
 
