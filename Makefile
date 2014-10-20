@@ -16,10 +16,7 @@ bootstraper:
 	zip -9 -r $(NAME).zip $(NAME)
 	rm -rf $(NAME)
 
-addon.xml:
-	sed s/\$$VERSION/$(VERSION)/g < addon.xml.tpl > $@
-
-$(ZIP_FILE): addon.xml
+$(ZIP_FILE):
 	git archive --format zip --prefix $(NAME)/ --output $(ZIP_FILE) $(GIT_VERSION)
 	mkdir -p $(NAME)/resources/bin
 	ln -s `pwd`/addon.xml $(NAME)
@@ -38,4 +35,4 @@ zipfiles: addon.xml
 zip: $(ZIP_FILE)
 
 clean:
-	rm -rf addon.xml
+	rm -rf $(NAME)
