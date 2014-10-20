@@ -15,6 +15,13 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
-        <language></language>
+        <language>en</language>
+        <website><![CDATA[https://github.com/steeve/plugin.video.pulsar]]></website>
+        <forum><![CDATA[http://forum.xbmc.org/showthread.php?tid=200957]]></forum>
+        <source><![CDATA[https://github.com/steeve/plugin.video.pulsar]]></source>
+        <language>en</language>
+        <license><![CDATA[Non commercial. See https://github.com/steeve/plugin.video.pulsar/blob/master/LICENSE]]></license>
+        <summary><![CDATA[Pulsar: Universal streaming]]></summary>
+        <description><![CDATA[Follow @pulsarhq on Twitter]]></description>
     </extension>
 </addon>
