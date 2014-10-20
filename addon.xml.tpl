@@ -6,7 +6,7 @@
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
     </extension>
-    <extension point="xbmc.service" library="pulsard.py" start="login"/>
+    <extension point="xbmc.service" library="pulsard.py" start="startup"/>
     <extension point="xbmc.python.module" library="resources/site-packages" />
     <extension point="xbmc.addon.repository" name="Pulsar Repository">
         <info compressed="false">http://localhost:10001/repository/steeve/plugin.video.pulsar/addons.xml</info>
