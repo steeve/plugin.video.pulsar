@@ -5,7 +5,7 @@ import xbmcgui
 import xbmcplugin
 
 HANDLE = int(sys.argv[1])
-PULSARD_HOST = "http://localhost:10001"
+PULSARD_HOST = "http://localhost:65251"
 
 import socket
 socket.setdefaulttimeout(300)
