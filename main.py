@@ -1,14 +1,18 @@
-import json
+import os
 import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'resources', 'site-packages'))
+
+import json
 import urllib2
 import xbmcgui
 import xbmcplugin
+import socket
+from pulsar.config import PULSARD_HOST
+from pulsar.addon import ADDON_ID
+
 
 HANDLE = int(sys.argv[1])
-PULSARD_HOST = "http://localhost:65251"
 
-import socket
-socket.setdefaulttimeout(300)
 
 class closing(object):
     def __init__(self, thing):
@@ -17,6 +21,7 @@ class closing(object):
         return self.thing
     def __exit__(self, *exc_info):
         self.thing.close()
+
 
 class NoRedirectHandler(urllib2.HTTPRedirectHandler):
     def http_error_302(self, req, fp, code, msg, headers):
@@ -29,7 +34,7 @@ class NoRedirectHandler(urllib2.HTTPRedirectHandler):
     http_error_301 = http_error_302
     http_error_303 = http_error_302
     http_error_307 = http_error_302
-urllib2.install_opener(urllib2.build_opener(NoRedirectHandler()))
+
 
 def _json(url):
     with closing(urllib2.urlopen(url)) as response:
@@ -40,9 +45,21 @@ def _json(url):
         if payload:
             return json.loads(payload)
 
-url = sys.argv[0].replace("plugin://plugin.video.pulsar", PULSARD_HOST) + sys.argv[2]
-data = _json(url)
-if data:
+
+def main():
+    if not os.path.exists(os.path.join(os.path.dirname(__file__), ".firstrun")):
+        from pulsar.util import notify
+        notify("You must restart XBMC before using Pulsar")
+        return
+
+    socket.setdefaulttimeout(300)
+    urllib2.install_opener(urllib2.build_opener(NoRedirectHandler()))
+
+    url = sys.argv[0].replace("plugin://%s" % ADDON_ID, PULSARD_HOST) + sys.argv[2]
+    data = _json(url)
+    if not data:
+        return
+
     if data["content_type"]:
         xbmcplugin.addSortMethod(HANDLE, xbmcplugin.SORT_METHOD_UNSORTED)
         xbmcplugin.addSortMethod(HANDLE, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
@@ -70,3 +87,5 @@ if data:
 
     xbmcplugin.addDirectoryItems(HANDLE, listitems, totalItems=len(listitems))
     xbmcplugin.endOfDirectory(HANDLE, succeeded=True, updateListing=False, cacheToDisc=True)
+
+main()
