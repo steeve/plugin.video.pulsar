@@ -67,7 +67,7 @@ def main():
         xbmcplugin.addSortMethod(HANDLE, xbmcplugin.SORT_METHOD_GENRE)
         xbmcplugin.setContent(HANDLE, data["content_type"])
 
-    listitems = [None for _ in xrange(len(data["items"]))]
+    listitems = range(len(data["items"]))
     for i, item in enumerate(data["items"]):
         listItem = xbmcgui.ListItem(label=item["label"], iconImage=item["icon"], thumbnailImage=item["thumbnail"])
         if item.get("info"):
