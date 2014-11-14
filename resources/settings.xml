@@ -11,4 +11,8 @@
         <setting id="listen_port_min" label="Listen Port Min" type="number" default="6889" />
         <setting id="listen_port_max" label="Listen Port Max" type="number" default="7000" />
     </category>
+    <category label="Advanced">
+        <setting label="Maintenance" type="lsep"/>
+        <setting type="action" label="Clear cache" action="RunPlugin(plugin://plugin.video.pulsar/cmd/clear_cache)" />
+    </category>
 </settings>
