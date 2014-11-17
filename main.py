@@ -48,6 +48,14 @@ def _json(url):
 
 
 def main():
+    if ("%(os)s_%(arch)s" % PLATFORM) not in [
+        "windows_x86",
+        "darwin_x64",
+        "linux_x86", "linux_x64", "linux_arm",
+    ]:
+        from pulsar.util import notify
+        notify("Pulsar is compatible only with Windows, Linux and OS X")
+        return
     if not os.path.exists(os.path.join(os.path.dirname(__file__), ".firstrun")):
         from pulsar.util import notify
         notify("You must restart XBMC before using Pulsar")
