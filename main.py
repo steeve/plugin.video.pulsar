@@ -9,6 +9,7 @@ import xbmcplugin
 import socket
 from pulsar.config import PULSARD_HOST
 from pulsar.addon import ADDON_ID
+from pulsar.platform import PLATFORM
 
 
 HANDLE = int(sys.argv[1])
@@ -50,6 +51,10 @@ def main():
     if not os.path.exists(os.path.join(os.path.dirname(__file__), ".firstrun")):
         from pulsar.util import notify
         notify("You must restart XBMC before using Pulsar")
+        return
+    if PLATFORM["os"] not in ["windows", "linux", "darwin"]:
+        from pulsar.util import notify
+        notify("Pulsar is compatible only with Windows, Linux and OS X")
         return
 
     socket.setdefaulttimeout(300)
