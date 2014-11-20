@@ -3,10 +3,10 @@
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
-    <extension point="xbmc.python.pluginsource" library="main.py">
+    <extension point="xbmc.python.pluginsource" library="navigation.py">
         <provides>video</provides>
     </extension>
-    <extension point="xbmc.service" library="pulsard.py" start="startup"/>
+    <extension point="xbmc.service" library="service.py" start="startup"/>
     <extension point="xbmc.python.module" library="resources/site-packages" />
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
