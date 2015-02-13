@@ -17,7 +17,7 @@ bootstraper:
 	rm -rf $(NAME)
 
 $(ZIP_FILE):
-	git archive --format zip --prefix $(NAME)/ --output $(ZIP_FILE) $(GIT_VERSION)
+	git archive --format zip --prefix $(NAME)/ --output $(ZIP_FILE) HEAD
 	mkdir -p $(NAME)/resources/bin
 	ln -s `pwd`/addon.xml $(NAME)
 	zip -9 -r -g $(ZIP_FILE) $(NAME)/addon.xml
