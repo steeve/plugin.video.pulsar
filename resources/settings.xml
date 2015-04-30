@@ -20,6 +20,9 @@
         <setting id="socks_password" label="Password" type="text" default="" subsetting="true" visible="eq(-4,true)" />
     </category>
     <category label="Advanced">
+        <setting label="Custom Provider Timeout" type="lsep"/>
+        <setting id="custom_provider_timeout_enabled" label="Enabled (use at your own risk)" type="bool" default="false" />
+        <setting id="custom_provider_timeout" label="Timeout in seconds" type="number" default="4" visible="eq(-1,true)" />
         <setting label="Maintenance" type="lsep"/>
         <setting type="action" label="Clear cache" action="RunPlugin(plugin://plugin.video.pulsar/cmd/clear_cache)" />
     </category>
