@@ -11,6 +11,14 @@
         <setting id="listen_port_min" label="Listen Port Min" type="number" default="6889" />
         <setting id="listen_port_max" label="Listen Port Max" type="number" default="7000" />
     </category>
+    <category label="Proxy">
+        <setting label="SOCKS v5 Configuration" type="lsep"/>
+        <setting id="socks_enabled" label="Enabled" type="bool" default="false" />
+        <setting id="socks_host" label="Host" type="text" default="" subsetting="true" visible="eq(-1,true)" />
+        <setting id="socks_port" label="Port" type="number" default="1080" subsetting="true" visible="eq(-2,true)" />
+        <setting id="socks_login" label="Login" type="text" default="" subsetting="true" visible="eq(-3,true)" />
+        <setting id="socks_password" label="Password" type="text" default="" subsetting="true" visible="eq(-4,true)" />
+    </category>
     <category label="Advanced">
         <setting label="Maintenance" type="lsep"/>
         <setting type="action" label="Clear cache" action="RunPlugin(plugin://plugin.video.pulsar/cmd/clear_cache)" />
