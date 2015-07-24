@@ -12,6 +12,7 @@ Supported platforms
 - Linux 32/64 bits (starting Ubuntu 12.04)
 - Linux ARM (Raspberry Pi, Cubox i4pro etc...)
 - OS X 64 bits
+- Android ARM (4.x)
 
 
 Download
